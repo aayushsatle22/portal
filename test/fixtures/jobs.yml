@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  job_description: MyString
+  salarty: 1
+
+two:
+  title: MyString
+  type: 
+  job_description: MyString
+  salarty: 1
