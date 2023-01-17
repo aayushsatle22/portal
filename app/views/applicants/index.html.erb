@@ -3,6 +3,10 @@
 <table>
   <tr>
     <th>Title</th>
+    <th>Jobtype</th>
+    <th>Salary</th>
+    <th>Location</th>
+    <th>Description</th>
   </tr>
  
   <% @jobs.each do |job| %>
@@ -12,7 +16,8 @@
       <td><%= job.salary %></td>
       <td><%= job.location %></td>
       <td><%= job.description %></td>
-      <td><%= link_to 'Show', job_path(job) %></td>
+    
+      <td><%= link_to 'apply', applicant_path(job) %></td>
     </tr>
   <% end %>
 </table>

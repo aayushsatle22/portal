@@ -14,10 +14,14 @@ class ApplicationController < ActionController::Base
     if resource.role == "admin"
       jobs_path
     elsif resource.role == "user"
-      new_job_path
+      applicants_path
     else
       root_path
     end
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+  new_user_session_path
   end
   
   

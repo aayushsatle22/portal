@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :applicants
   resources :jobs
   root 'jobs#index'
-  
+  get 'applicants/storedata', to: 'applicants#storedata'
 end

@@ -3,6 +3,8 @@ class ApplicantsController < ApplicationController
     @jobs = Job.all
     end
    def show
-    @job = Job.find(params[:id])
+    @job = Job.find(params[:id]) 
+      AppliedJob.create(job_id: @job.id,user_id: current_user.id)
    end
+   
 end
