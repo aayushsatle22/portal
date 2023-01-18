@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :applicants
+  resources :applied_jobs
   resources :jobs
   root 'jobs#index'
-  get 'applicants/storedata', to: 'applicants#storedata'
+  get 'applied_jobs/display'
 end

@@ -23,6 +23,7 @@
   <%= @job.description %>
 </p>
  
- <h4>you have successfully applied for this job<h4>
 
-<%= link_to 'Back', applicants_path %>
+ 
+<%= link_to 'apply',  new_applied_job_path(job_id: @job.id) %>
+<%= link_to 'back',   applied_jobs_path %>
