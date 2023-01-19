@@ -16,13 +16,14 @@ class AppliedJobsController < ApplicationController
         @applied_job = AppliedJob.new(applied_job_params)
         @applied_job.user = current_user
         if @applied_job.save
-            flash[:notice] = "Job submission created successfully"
-            redirect_to applied_jobs_path, notice:"job sbmission created successfully"
+            flash[:notice] = ""
+            redirect_to display_applied_jobs_path
         else
             render :new  
         end
      end
-     
+     def display
+     end
 
      private
 
