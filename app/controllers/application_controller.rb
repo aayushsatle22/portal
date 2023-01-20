@@ -31,12 +31,6 @@ class ApplicationController < ActionController::Base
     
     new_user_session_path
    end 
-   def create
-    super
-    if resource.persisted?
-      sign_in(resource)
-      redirect_to new_user_session_path
-    end
-  end
+   
    
 end

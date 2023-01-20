@@ -1,0 +1,58 @@
+<table>
+  <tr>
+    <th>User_Id</th>
+    <th>Name</th>
+     <th>Surname</th>
+    <th>Email</th>
+    <th>Job_Id</th>
+     <th>Title</th>
+    <th colspan="3"></th>
+  </tr>
+ <% @applied_jobs.each do |job| %>
+  <tr>
+    <td><%= job.user_id %></td>
+    <td><%= job.name %></td>
+    <td><%= job.surname %></td>
+    <td><%= job.email %></td>
+    <td><%= job.job_id %></td>
+    <td><%= job.title %></td>
+
+  </tr>
+<% end %>
+  
+</table>
+
+
+<%= link_to 'back', jobs_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

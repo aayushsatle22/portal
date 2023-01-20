@@ -1,3 +1,5 @@
+<h1>ADMIN PORTAL</h1>
+
  <h1>Listing jobs</h1>
 
 <table>
@@ -27,5 +29,6 @@
   <% end %>
 </table>
 <%= link_to 'New job', new_job_path %>
-
+<%= link_to 'All Users', all_user_jobs_path %>
+<%= link_to 'Applicant', applicant_jobs_path %>
 <%= button_to 'logout', destroy_user_session_path,method: :delete %>

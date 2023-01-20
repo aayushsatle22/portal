@@ -36,7 +36,15 @@ class JobsController < ApplicationController
   @job.destroy
  
   redirect_to jobs_path
-end
+  end
+  def all_user
+     @all_user = User.where(role: 'user')
+   end
+   def applicant
+    @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title")
+    
+
+   end
 private
   def job_params
     params.require(:job).permit(:title, :jobtype, :salary, :location, :description)

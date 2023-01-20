@@ -1,4 +1,5 @@
- <h1>Listing jobs</h1>
+ <h1>USER PORTAL</h1>
+ <h3>Listing jobs</h3>
 
 <table>
   <tr>
@@ -25,7 +26,7 @@
 
 
 <%= button_to 'logout', destroy_user_session_path,method: :delete %>
-
+<%= button_to 'myjobs', myjob_applied_jobs_path,method: :get %>
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>

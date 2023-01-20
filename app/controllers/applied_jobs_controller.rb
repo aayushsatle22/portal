@@ -25,6 +25,11 @@ class AppliedJobsController < ApplicationController
      def display
      end
 
+     def myjob
+      @job_ids = AppliedJob.where(user_id:current_user.id).pluck(:job_id)
+       @jobs=Job.where(id: @job_ids)
+     end
+
      private
 
 
