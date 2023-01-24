@@ -7,8 +7,10 @@ ruby "3.0.0"
 gem "rails", "~> 7.0.4"
 gem "byebug"
 gem "rest-client"
-
-
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'ransack'
+gem "letter_opener"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

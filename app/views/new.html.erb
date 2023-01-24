@@ -1,0 +1,11 @@
+<%= form_for @applicant,url:applicants_path  do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, value: current_user.name %>
+  <%= f.label :surname %>
+  <%= f.text_field :surname, value: current_user.surname %>
+  <%= f.label :user_id %>
+  <%= f.text_field :user_id,value: current_user.id %>
+  <%= f.label :job_id %>
+  <%= f.text_field :job_id,value:  @job.id %>
+  <%= f.submit %>
+<% end %>

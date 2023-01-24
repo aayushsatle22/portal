@@ -1,6 +1,8 @@
 class AppliedJobsController < ApplicationController
 	def index
-    @jobs = Job.all
+    #@jobs = Job.all
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result(distinct:true)
     end
    def show
     @job = Job.find(params[:id]) 
@@ -16,6 +18,7 @@ class AppliedJobsController < ApplicationController
         @applied_job = AppliedJob.new(applied_job_params)
         @applied_job.user = current_user
         if @applied_job.save
+             CrudAppliedjobMailer.create_notification(@applied_job,current_user).deliver_later
             flash[:notice] = ""
             redirect_to display_applied_jobs_path
         else
