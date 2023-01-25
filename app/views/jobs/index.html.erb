@@ -1,4 +1,10 @@
-<h1 style="color: black;"><b>ADMIN PORTAL</b></h1>
+ <% if current_user.role == "admin" %>
+   <h1 style="color: black;"><b>ADMIN PORTAL</b></h1>
+<% else %>
+  <h1 style="color: black;"><b>COMPANY PORTAL</b></h1>
+<% end %>
+
+ 
 
  <center><h2>List of Jobs</h2></center>
 <center>

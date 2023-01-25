@@ -33,6 +33,9 @@ class AppliedJobsController < ApplicationController
        @jobs=Job.where(id: @job_ids)
      end
 
+     def subscribe
+     end
+
      private
 
 

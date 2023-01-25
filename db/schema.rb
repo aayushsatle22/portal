@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_101158) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_120049) do
   create_table "applied_jobs", force: :cascade do |t|
     t.integer "user_id"
     t.integer "job_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_101158) do
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.string "jobtype"
     t.integer "salary"
@@ -33,6 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_101158) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "subscribes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "current_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscribes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

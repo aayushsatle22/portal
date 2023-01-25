@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     collection do
       get :display
       get :myjob
+      get :subscribe
     end
   end
   resources :jobs do 

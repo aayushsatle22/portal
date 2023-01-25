@@ -12,16 +12,15 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-       
-    if resource.role == "admin"
+    if resource.role == "admin" or resource.role == "company"
       jobs_path
     elsif resource.role == "user"
       applied_jobs_path
-      
-   else
+    else
       root_path
     end
   end
+
 
   def after_sign_out_path_for(resource_or_scope)
   new_user_session_path
@@ -32,5 +31,8 @@ class ApplicationController < ActionController::Base
     new_user_session_path
    end 
    
-   
+    def create
+    super
+    flash[:alert] = @user.errors.full_messages unless @user.errors.empty?
+    end
 end

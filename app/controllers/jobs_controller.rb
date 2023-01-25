@@ -1,6 +1,10 @@
 class JobsController < ApplicationController
 	def index
-    @jobs = Job.all
+    if current_user.role == "admin"
+       @jobs = Job.all
+    else 
+     @jobs = Job.where(user_id:current_user.id)
+    end
   end
   def show
     @job = Job.find(params[:id])
@@ -13,7 +17,7 @@ class JobsController < ApplicationController
   end
   def create
     # binding.pry
-  @job = Job.new(job_params)
+  @job = Job.new(job_params.merge(user_id: current_user.id))
  
   if @job.save
     redirect_to @job
@@ -41,8 +45,11 @@ class JobsController < ApplicationController
      @all_user = User.where(role: 'user')
    end
    def applicant
+   if current_user.role == "admin"
     @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title")
-    
+   else 
+    @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title").where(user_id: current_user.id)
+   end
 
    end
 private
