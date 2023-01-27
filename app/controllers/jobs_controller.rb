@@ -48,7 +48,9 @@ class JobsController < ApplicationController
    if current_user.role == "admin"
     @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title")
    else 
-    @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title").where(user_id: current_user.id)
+   # @applied_jobs = AppliedJob.joins(:job).select("applied_jobs.*, jobs.title").where(user_id: current_user.id)
+   @applied_jobs = AppliedJob.joins(:job).where(jobs: { user_id: current_user.id }).select("applied_jobs.*, jobs.title")
+
    end
 
    end

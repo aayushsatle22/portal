@@ -2,12 +2,15 @@
 
  <center><h2>List of Jobs</h2></center>
  <%= search_form_for @q, url: :applied_jobs do |form| %>
- <div class="form-group">
-  <%= form.label :search_by_title %>
-  <%= form.text_field :title_cont %>
-</div>
+
+  
 
 <div class="form-group ">
+
+  
+  <%= form.text_field :title_cont, placeholder: "Search by title..." %>
+
+
   <%= form.submit 'Search', class: "btn btn-primary" %>
 </div>
 <% end %>

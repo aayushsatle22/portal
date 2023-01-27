@@ -1,3 +1,10 @@
+
+<div class="card" style="width: 20rem;" >
+  <div class="card border-dark shadow-sm">
+  <div class="card-body">
+    
+
+
 <%= form_with model: @job, local: true do |form| %>
  
   <% if @job.errors.any? %>
@@ -21,7 +28,7 @@
  
   <p>
     <%= form.label :jobtype %><br>
-    <%= form.text_area :jobtype %>
+    <%= form.text_field :jobtype %>
   </p>
 
   <p>
@@ -31,18 +38,21 @@
  
   <p>
     <%= form.label :location %><br>
-    <%= form.text_area :location %>
+    <%= form.text_field :location %>
   </p>
 
   <p>
     <%= form.label :description %><br>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </p>
  
   
  
   <p>
-    <%= form.submit %>
+    <%= form.submit("Submit", class: "btn btn-primary")  %>
   </p>
  
 <% end %>
+</div>
+</div>
+</div>

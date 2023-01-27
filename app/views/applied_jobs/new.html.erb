@@ -1,4 +1,10 @@
-<h1>Application Form</h1>
+
+<div class="d-flex align-items-center justify-content-center" style="height: 90vh">
+<div class="card" style="width: 20rem;" >
+  <div class="card border-dark shadow-sm">
+  <div class="card-body">
+     <h2 class="card-title">Application Form</h2>
+
 <%= form_for @applied_job do |f| %>
    <p>
     <%= f.label :userid %><br>
@@ -6,7 +12,7 @@
   </p>
   <p>
     <%= f.label :jobid %><br>
-    <%= f.text_area :job_id, value: @job.id ,size:20 %>
+    <%= f.text_field :job_id, value: @job.id ,size:20 %>
   </p>
  <p>
     <%= f.label :name %><br>
@@ -14,7 +20,7 @@
   </p>
   <p>
     <%= f.label :surname %><br>
-    <%= f.text_area :surname, value: current_user.surname,size:20 %>
+    <%= f.text_field :surname, value: current_user.surname,size:20 %>
   </p>
   <p>
     <%= f.label :email %><br>
@@ -22,15 +28,19 @@
   </p>
   <p>
     <%= f.label :contactno %><br>
-    <%= f.text_area :contactno,size:20 %>
+    <%= f.text_field :contactno,size:20 %>
   </p>
   <p>
     <%= f.label :experience %><br>
-    <%= f.text_field :experience,size:20 %>
+    <%= f.text_area :experience,size:20 %>
   </p>
   
  
   <p>
-    <%= f.submit %>
+    <%= f.submit("Submit", class: "btn btn-primary") %>
   </p>
 <% end %>
+</div>
+</div>
+</div>
+</div>
