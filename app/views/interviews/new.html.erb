@@ -1,0 +1,41 @@
+ <div class="d-flex align-items-center justify-content-center" style="height: 90vh">
+<div class="card" style="width: 20rem;" >
+ <div class="card border-dark shadow-sm">
+<div class="card-body">
+<h2 class="card-title">Interview</h2>
+<%= form_with model: @interview,data: { turbo: false},  local: true do |f| %>
+  <%= f.hidden_field :user_id, value: @user_id %>
+  <%= f.hidden_field :job_id, value:  @job_id %>
+  
+  
+  <p>
+    <%= f.label :date %><br>
+    <%= f.text_field :date,size:20 %>
+    <% @interview.errors.full_messages_for(:date).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
+  </p>
+  <p>
+ 
+    <%= f.label :address %><br>
+    <%= f.text_field :address,size:20 %>
+    <% @interview.errors.full_messages_for(:address).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
+  </p>
+  
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<% if flash[:error].present? %>
+  <div class="error_message">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>

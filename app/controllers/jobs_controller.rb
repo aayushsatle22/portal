@@ -1,9 +1,9 @@
 class JobsController < ApplicationController
 	def index
-    if current_user.role == "admin"
+    if current_user.role == 'admin'
        @jobs = Job.all
     else 
-     @jobs = Job.where(user_id:current_user.id)
+     @jobs = Job.where(user_id: current_user.id)
     end
   end
   def show
@@ -22,7 +22,7 @@ class JobsController < ApplicationController
   if @job.save
     redirect_to @job
   else
-    flash[:error] = @JobsController.errors.full_messages
+    
     render 'new'
   end
  end

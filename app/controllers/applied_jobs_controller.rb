@@ -17,7 +17,11 @@ class AppliedJobsController < ApplicationController
      def create
         @applied_job = AppliedJob.new(applied_job_params)
         @applied_job.user = current_user
-        if @applied_job.save
+        
+        if AppliedJob.exists?(user_id: params[:applied_job][:user_id], job_id: params[:applied_job][:job_id])
+        flash[:error] = "you have  already applied for this  Job"
+        render :new
+        elsif @applied_job.save
              CrudAppliedjobMailer.create_notification(@applied_job,current_user).deliver_later
             flash[:notice] = ""
             redirect_to display_applied_jobs_path

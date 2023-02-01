@@ -1,0 +1,9 @@
+<h1>Interview Details</h1>
+
+<p>User_Id: <%= @interview.user_id %></p>
+<p>Job_Id: <%= @interview.job_id %></p>
+<p>Date: <%= @interview.date %></p>
+<p>Address: <%= @interview.address %></p>
+<p><b>status: <%= @interview.status %></b></p>
+ <%= link_to 'Back', applicant_jobs_path,class: "btn btn-warning"%>
+ <%= link_to 'edit status', edit_interview_path(@interview),class: "btn btn-primary"%>

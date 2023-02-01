@@ -5,45 +5,48 @@
     
 
 
-<%= form_with model: @job, local: true do |form| %>
+<%= form_with model: @job,data: { turbo: false}, local: true do |form| %>
  
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@job.errors.count, "error") %> prohibited
-        this job from being saved:
-      </h2>
-      <ul>
-        <% @job.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
  
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
+     <% @job.errors.full_messages_for(:title).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </p>
  
   <p>
     <%= form.label :jobtype %><br>
     <%= form.text_field :jobtype %>
+     <% @job.errors.full_messages_for(:jobtype).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </p>
 
   <p>
     <%= form.label :salary %><br>
     <%= form.text_field :salary %>
+     <% @job.errors.full_messages_for(:salary).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </p>
  
   <p>
     <%= form.label :location %><br>
     <%= form.text_field :location %>
+     <% @job.errors.full_messages_for(:location).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </p>
 
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
+    <% @job.errors.full_messages_for(:description).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </p>
  
   

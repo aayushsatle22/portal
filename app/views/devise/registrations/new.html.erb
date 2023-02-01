@@ -4,12 +4,15 @@
   <div class="card-body">
      <h2 class="card-title">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name,data: { turbo: false}, url: registration_path(resource_name)) do |f| %>
+  
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     <% @user.errors.full_messages_for(:email).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
 
   <div class="field">
@@ -18,26 +21,41 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
+     <% @user.errors.full_messages_for(:password).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation %>
+     <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
   
    <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+     <% @user.errors.full_messages_for(:name).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
 
    <div class="field">
     <%= f.label :surname %><br>
     <%= f.text_field :surname %>
+     <% @user.errors.full_messages_for(:surname).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
 
  <div class="field">
     <%= f.label :role %><br>
     <%= f.text_field :role %>
+     <% @user.errors.full_messages_for(:role).each do |message| %>
+      <span><%= message %></span>
+    <% end %>
   </div>
  <br>
   <div class="actions">
@@ -51,8 +69,4 @@
 </div>
 </div>
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
-    <%= value %>
-  </div>
-<% end %>
+

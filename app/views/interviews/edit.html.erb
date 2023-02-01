@@ -1,0 +1,9 @@
+<h1>Edit Interview Status</h1>
+
+<%= form_with model: @interview, url: interview_path(@interview), method: :patch do |form| %>
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, ['In Progress', 'Selected', 'Rejected'], class: 'form-control' %>
+  </div>
+  <%= form.submit "Update", class: "btn btn-primary" %>
+<% end %>

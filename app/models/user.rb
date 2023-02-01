@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   validates :name, :surname, :role, presence: { message: "can't be blank" }
+   validates :name,:role,:password_confirmation, presence: { message: "can't be blank" }
     has_many :applied_jobs  
     has_many :jobs   
 end
