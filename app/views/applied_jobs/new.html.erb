@@ -7,18 +7,14 @@
 
 <%= form_for @applied_job,data: { turbo: false} do |f| %>
    <p>
-    <%= f.label :userid %><br>
-    <%= f.text_field :user_id, value: current_user.id,size: 20 %>
-     <% @applied_job.errors.full_messages_for(:userid).each do |message| %>
-      <span><%= message %></span>
-    <% end %>
+   
+    <%= f.hidden_field :user_id, value: current_user.id,size: 20 %>
+     
   </p>
   <p>
-    <%= f.label :jobid %><br>
-    <%= f.text_field :job_id, value: params[:job_id] ,size:20 %>
-     <% @applied_job.errors.full_messages_for(:jobid).each do |message| %>
-      <span><%= message %></span>
-    <% end %>
+    
+    <%= f.hidden_field :job_id, value: params[:job_id] ,size:20 %>
+    
   </p>
  <p>
     <%= f.label :name %><br>

@@ -9,7 +9,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",size:26 %>
      <% @user.errors.full_messages_for(:email).each do |message| %>
       <span><%= message %></span>
     <% end %>
@@ -20,7 +20,7 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password" ,size:26%>
      <% @user.errors.full_messages_for(:password).each do |message| %>
       <span><%= message %></span>
     <% end %>
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation ,size:26%>
      <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
       <span><%= message %></span>
     <% end %>
@@ -36,7 +36,7 @@
   
    <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name ,size:26%>
      <% @user.errors.full_messages_for(:name).each do |message| %>
       <span><%= message %></span>
     <% end %>
@@ -44,19 +44,20 @@
 
    <div class="field">
     <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname ,size:26%>
      <% @user.errors.full_messages_for(:surname).each do |message| %>
       <span><%= message %></span>
     <% end %>
   </div>
 
  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
-     <% @user.errors.full_messages_for(:role).each do |message| %>
-      <span><%= message %></span>
-    <% end %>
-  </div>
+  <%= f.label :role %><br>
+  <%= f.select :role, [['Select role', nil], ['User', 'user'], ['Company', 'company']], { selected: @user.role }, { class: 'form-control' } %>
+  <% @user.errors.full_messages_for(:role).each do |message| %>
+    <span><%= message %></span>
+  <% end %>
+</div>
+
  <br>
   <div class="actions">
     <%= f.submit "Sign up" ,class:"btn btn-primary"%>

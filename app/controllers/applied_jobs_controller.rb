@@ -23,7 +23,6 @@ class AppliedJobsController < ApplicationController
         render :new
         elsif @applied_job.save
              CrudAppliedjobMailer.create_notification(@applied_job,current_user).deliver_later
-            flash[:notice] = ""
             redirect_to display_applied_jobs_path
         else
             render :new  
@@ -37,8 +36,6 @@ class AppliedJobsController < ApplicationController
        @jobs=Job.where(id: @job_ids)
      end
 
-     def subscribe
-     end
 
      private
 
