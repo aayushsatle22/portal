@@ -23,6 +23,12 @@
     <td><%= job.title %></td>
 
 
+    <td>
+       <% if job.resume.attached? %>
+    <%= link_to 'Download Resume', rails_blob_path(job.resume) %>
+  <% end %>
+    </td>
+
     <td><%= link_to 'interview',new_interview_path(user_id: job.user_id,job_id: job.job_id) ,class: "btn btn-info" %></td>
     <% interview = Interview.find_by(user_id: job.user_id, job_id: job.job_id) %>
 

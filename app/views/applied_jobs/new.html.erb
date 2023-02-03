@@ -52,6 +52,14 @@
     <% end %>
   </p>
   
+  <p>
+  <%= f.label :resume %><br>
+  <%= f.file_field :resume %>
+   <% @applied_job.errors.full_messages_for(:resume).each do |message| %>
+    <span><%= message %></span>
+  <% end %>
+</p>
+
  
   <p>
     <%= f.submit("Submit", class: "btn btn-primary") %>
