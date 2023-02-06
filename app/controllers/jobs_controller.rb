@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
 
+ before_action :authorize_admin_or_company
+
 	def index
     if current_user.role == 'admin'
        @jobs = Job.all
@@ -63,6 +65,14 @@ private
   def job_params
     params.require(:job).permit(:title, :jobtype, :salary, :location, :description)
 
+  end
+   def authorize_admin_or_company
+    unless current_user.role == 'admin' || current_user.role == 'company'
+        flash[:notice] = "You are not authorized to access this page."
+        sign_out current_user
+        redirect_to root_path
+          
+    end
   end
 end
 
