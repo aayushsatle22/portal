@@ -44,6 +44,3 @@
 
 <%= button_to 'myjobs', myjob_applied_jobs_path,class:"btn btn-success",method: :get %>
 <center><%= button_to 'logout', destroy_user_session_path,class:"btn btn-secondary",method: :delete %></center>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
